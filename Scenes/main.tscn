@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://bhkwkcqidpug1"]
+
+[ext_resource type="Script" uid="uid://rxb6yeaflpif" path="res://Scripts/main.gd" id="1_21xkr"]
+[ext_resource type="Script" uid="uid://1nfiokd5s7hf" path="res://Scripts/player.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://dq2ihimlh10ul" path="res://Assets/Images/dude.png" id="1_jjgbg"]
+[ext_resource type="Shader" uid="uid://dxsaorx1ecq7l" path="res://Scenes/pickup.gdshader" id="1_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://uvmvbnc6xvtv" path="res://Assets/Images/musicnote.png" id="2_kry3j"]
+[ext_resource type="AudioStream" uid="uid://b0u2jdjimuuoa" path="res://Assets/Sounds/CoolGameSong.mp3" id="2_ynf5e"]
+[ext_resource type="Script" uid="uid://dmx87uvyvvx0t" path="res://Scripts/pickup.gd" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://b4idj3dx1s7ni" path="res://Scripts/dont_pickup.gd" id="7_344ge"]
+[ext_resource type="Texture2D" uid="uid://bxxx87wkept8m" path="res://Assets/Images/hammer.png" id="8_ynf5e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pa2y"]
+radius = 52.0
+height = 152.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pa2y"]
+size = Vector2(26, 717)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eba35"]
+size = Vector2(1266, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bo1nx"]
+shader = ExtResource("1_jjvhh")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eba35"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pgs2"]
+radius = 24.0
+height = 64.0
+
+[node name="main" type="Node2D" unique_id=1296661293]
+script = ExtResource("1_21xkr")
+
+[node name="GameSound" type="AudioStreamPlayer2D" parent="." unique_id=228168224]
+stream = ExtResource("2_ynf5e")
+autoplay = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=966403939]
+position = Vector2(656, 344)
+script = ExtResource("1_bo1nx")
+metadata/_edit_group_ = true
+
+[node name="Dude" type="Sprite2D" parent="Player" unique_id=1382120433]
+position = Vector2(2.0000305, -1.0000153)
+scale = Vector2(6.8166666, 6.8166666)
+texture = ExtResource("1_jjgbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=866527702]
+shape = SubResource("CapsuleShape2D_1pa2y")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=2061764233]
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=2041428498]
+position = Vector2(13, 361.5)
+shape = SubResource("RectangleShape2D_1pa2y")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls" unique_id=713296516]
+position = Vector2(1264, 360)
+shape = SubResource("RectangleShape2D_1pa2y")
+
+[node name="UpWall" type="CollisionShape2D" parent="Walls" unique_id=378230634]
+position = Vector2(639, 16)
+shape = SubResource("RectangleShape2D_eba35")
+
+[node name="DownWall" type="CollisionShape2D" parent="Walls" unique_id=846068878]
+position = Vector2(648, 712)
+shape = SubResource("RectangleShape2D_eba35")
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1304964304]
+
+[node name="Pickup" type="Area2D" parent="Pickups" unique_id=2080756061]
+position = Vector2(336, 560)
+script = ExtResource("3_kry3j")
+metadata/_edit_group_ = true
+
+[node name="Musicnote" type="Sprite2D" parent="Pickups/Pickup" unique_id=1505364155]
+material = SubResource("ShaderMaterial_bo1nx")
+position = Vector2(-8, 0)
+scale = Vector2(5.3000007, 5.333331)
+texture = ExtResource("2_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/Pickup" unique_id=1556416853]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_eba35")
+
+[node name="Pickup4" type="Area2D" parent="Pickups" unique_id=654137232]
+position = Vector2(984, 192)
+script = ExtResource("3_kry3j")
+metadata/_edit_group_ = true
+
+[node name="Musicnote" type="Sprite2D" parent="Pickups/Pickup4" unique_id=1796984720]
+material = SubResource("ShaderMaterial_bo1nx")
+position = Vector2(-8, 0)
+scale = Vector2(5.3000007, 5.333331)
+texture = ExtResource("2_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/Pickup4" unique_id=495966926]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_eba35")
+
+[node name="Pickup3" type="Area2D" parent="Pickups" unique_id=1652145207]
+position = Vector2(912, 496)
+script = ExtResource("3_kry3j")
+metadata/_edit_group_ = true
+
+[node name="Musicnote" type="Sprite2D" parent="Pickups/Pickup3" unique_id=342551463]
+material = SubResource("ShaderMaterial_bo1nx")
+position = Vector2(-8, 0)
+scale = Vector2(5.3000007, 5.333331)
+texture = ExtResource("2_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/Pickup3" unique_id=1876751731]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_eba35")
+
+[node name="Pickup2" type="Area2D" parent="Pickups" unique_id=1304324604]
+position = Vector2(202, 272)
+script = ExtResource("3_kry3j")
+metadata/_edit_group_ = true
+
+[node name="Musicnote" type="Sprite2D" parent="Pickups/Pickup2" unique_id=1942449156]
+material = SubResource("ShaderMaterial_bo1nx")
+position = Vector2(-8, 0)
+scale = Vector2(5.3000007, 5.333331)
+texture = ExtResource("2_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickups/Pickup2" unique_id=1453018421]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_eba35")
+
+[node name="Score" type="Label" parent="." unique_id=1523068247]
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 506.0
+offset_bottom = 144.0
+theme_override_font_sizes/font_size = 50
+text = "Music collected: 0"
+
+[node name="Score2" type="Label" parent="." unique_id=2093161197]
+offset_left = 624.0
+offset_top = 72.0
+offset_right = 1050.0
+offset_bottom = 144.0
+theme_override_font_sizes/font_size = 50
+text = "Hammers collected: 0"
+
+[node name="DontPickup" type="Area2D" parent="." unique_id=1973155931]
+position = Vector2(408, 392)
+script = ExtResource("7_344ge")
+metadata/_edit_group_ = true
+
+[node name="Hammer" type="Sprite2D" parent="DontPickup" unique_id=2058696082]
+scale = Vector2(3.7000012, 3.6999996)
+texture = ExtResource("8_ynf5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DontPickup" unique_id=369971649]
+shape = SubResource("CapsuleShape2D_2pgs2")
+
+[node name="DontPickup3" type="Area2D" parent="." unique_id=251983247]
+position = Vector2(760, 616)
+script = ExtResource("7_344ge")
+metadata/_edit_group_ = true
+
+[node name="Hammer" type="Sprite2D" parent="DontPickup3" unique_id=1268063427]
+scale = Vector2(3.7000012, 3.6999996)
+texture = ExtResource("8_ynf5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DontPickup3" unique_id=1269726549]
+shape = SubResource("CapsuleShape2D_2pgs2")
+
+[node name="DontPickup2" type="Area2D" parent="." unique_id=936049219]
+position = Vector2(784, 168)
+script = ExtResource("7_344ge")
+metadata/_edit_group_ = true
+
+[node name="Hammer" type="Sprite2D" parent="DontPickup2" unique_id=2008059946]
+scale = Vector2(3.7000012, 3.6999996)
+texture = ExtResource("8_ynf5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DontPickup2" unique_id=1351216497]
+shape = SubResource("CapsuleShape2D_2pgs2")
+
+[connection signal="body_entered" from="Pickups/Pickup" to="Pickups/Pickup" method="_on_body_entered"]
+[connection signal="collected" from="Pickups/Pickup" to="." method="_on_pickup_collected"]
+[connection signal="body_entered" from="Pickups/Pickup4" to="Pickups/Pickup4" method="_on_body_entered"]
+[connection signal="collected" from="Pickups/Pickup4" to="." method="_on_pickup_collected"]
+[connection signal="body_entered" from="Pickups/Pickup3" to="Pickups/Pickup3" method="_on_body_entered"]
+[connection signal="collected" from="Pickups/Pickup3" to="." method="_on_pickup_collected"]
+[connection signal="body_entered" from="Pickups/Pickup2" to="Pickups/Pickup2" method="_on_body_entered"]
+[connection signal="collected" from="Pickups/Pickup2" to="." method="_on_pickup_collected"]
+[connection signal="body_entered" from="DontPickup" to="DontPickup" method="_on_body_entered"]
+[connection signal="collectedBad" from="DontPickup" to="." method="_on_dont_pickup_collected_bad"]
+[connection signal="body_entered" from="DontPickup3" to="DontPickup3" method="_on_body_entered"]
+[connection signal="collectedBad" from="DontPickup3" to="." method="_on_dont_pickup_3_collected_bad"]
+[connection signal="body_entered" from="DontPickup2" to="DontPickup2" method="_on_body_entered"]
+[connection signal="collectedBad" from="DontPickup2" to="." method="_on_dont_pickup_2_collected_bad"]

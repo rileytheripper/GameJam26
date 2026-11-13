@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bxn8e206xvxwc"]
+
+[ext_resource type="Script" uid="uid://dbfxuxo12k4ql" path="res://Scenes/lose_screen.gd" id="1_488pv"]
+[ext_resource type="Texture2D" uid="uid://bakq62a7p414r" path="res://Assets/Images/sad.png" id="2_go37l"]
+
+[node name="LoseScreen" type="Control" unique_id=827083488]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_488pv")
+
+[node name="Label" type="Label" parent="." unique_id=1918172020]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 152.0
+offset_right = 824.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0.4745098, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.8039216, 1)
+theme_override_font_sizes/font_size = 73
+text = "You lose! Boo!"
+
+[node name="Sad" type="Sprite2D" parent="." unique_id=947258835]
+position = Vector2(579, 435)
+scale = Vector2(2.82, 2.5)
+texture = ExtResource("2_go37l")

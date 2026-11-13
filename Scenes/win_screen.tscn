@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://yi5ckht68ouf"]
+
+[ext_resource type="Texture2D" uid="uid://dq2ihimlh10ul" path="res://Assets/Images/dude.png" id="1_a00f1"]
+[ext_resource type="Script" uid="uid://dc3lsohmtdtjb" path="res://Scenes/win_screen.gd" id="1_awi1s"]
+[ext_resource type="Texture2D" uid="uid://cglty1l12aukf" path="res://Assets/Images/crown.png" id="1_l5sol"]
+
+[node name="WinScreen" type="Control" unique_id=97289261]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_awi1s")
+
+[node name="Label" type="Label" parent="." unique_id=88442789]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 200.0
+offset_right = 947.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0.4745098, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.8039216, 1)
+theme_override_font_sizes/font_size = 73
+text = "You win! Hooray!"
+
+[node name="Dude" type="Sprite2D" parent="." unique_id=912180049]
+position = Vector2(661.75, 507)
+scale = Vector2(6.2499995, 6.916668)
+texture = ExtResource("1_a00f1")
+
+[node name="Crown" type="Sprite2D" parent="." unique_id=234400032]
+position = Vector2(659.5, 419.25)
+scale = Vector2(1.2849991, 1.185)
+texture = ExtResource("1_l5sol")

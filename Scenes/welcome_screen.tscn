@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://civcmhi11qe7i"]
+
+[ext_resource type="Texture2D" uid="uid://u24xp5veohof" path="res://Assets/Images/title.png" id="1_18ppi"]
+[ext_resource type="Script" uid="uid://diql5kacrww75" path="res://Scripts/welcome_screen.gd" id="1_ir4ir"]
+[ext_resource type="Texture2D" uid="uid://d1t83qbypj1qe" path="res://Assets/Images/start dude.png" id="2_ir4ir"]
+
+[node name="WelcomeScreen" type="Control" unique_id=639998644]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ir4ir")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1461082980]
+position = Vector2(452.5, 368)
+scale = Vector2(1.3949152, 1)
+texture = ExtResource("1_18ppi")
+
+[node name="StartDude" type="Sprite2D" parent="." unique_id=2146828511]
+position = Vector2(960.00006, 328.00006)
+scale = Vector2(5.4850006, 5.4850006)
+texture = ExtResource("2_ir4ir")
+
+[node name="Button" type="Button" parent="." unique_id=286098900]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 488.0
+offset_right = 1200.0
+offset_bottom = 664.0
+theme_override_colors/font_color = Color(0.66943717, 0.6506585, 1.92523e-07, 1)
+theme_override_colors/font_hover_color = Color(0.31764707, 0.36078432, 0.8980392, 1)
+theme_override_font_sizes/font_size = 50
+text = "Start Game!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
